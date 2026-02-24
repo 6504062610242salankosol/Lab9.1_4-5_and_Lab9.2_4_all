@@ -1,0 +1,105 @@
+
+#include <stdio.h>
+#define NMAX 3
+void swapValue(int *a, int *b, int *c);
+void swapArray(int a[], int b[], int size); 
+
+int main() 
+{
+	int a = 1, b = 2, c = 3;
+	int a2=0,b2=0,c1=0;
+	
+	a2=a,b2=b,c1=c;
+	
+    printf("Before swapValue: a=%d, b=%d, c=%d\n", a, b, c);
+    swapValue( &a , &b,&c);
+
+    swapValue(&a, &b, &c);
+    printf("After  swapValue: a=%d, b=%d, c=%d\n", a, b, c);
+
+	int a1[3] = {a2,b2,c1};
+	int b1[3] = {b2,a2,c1};
+	
+	printf("\n");
+	
+	printf("Before swapArray a: ");
+	for(int i=0;i<3;i++)
+	{
+		 printf("%d ", a1[i]);
+	}
+	printf("\n");
+	
+	printf("Before swapArray b: ");
+	for(int i=0;i<3;i++)
+	{
+		 printf("%d ", b1[i]);
+	}
+	
+	printf("\n");
+	printf("\n");
+	printf("After swapArray a: ");
+	swapArray(a1,b1,c);
+    for(int i=0;i<3;i++)
+	{
+		 printf("%d ", a1[i]);
+	}
+	
+	printf("\n");
+
+	printf("After swapArray b: ");
+	 for(int i=0;i<3;i++)
+	{
+		 printf("%d ", b1[i]);
+	}
+}
+
+void swapValue(int *a, int *b, int *c)
+{
+	int temp=0;
+    if(*a > *b)
+    {
+    	int temp = *a;
+    	*a = *b;
+    	*b = temp;
+	}
+	if(*b > *c)
+    {
+    	int temp = *b;
+    	*b = *c;
+    	*c = temp;
+	}
+	if(*a < *b)
+    {
+    	int temp = *a;
+    	*a = *b;
+    	*b = temp;
+	}
+		if(*b < *c)
+    {
+    	int temp = *b;
+    	*b = *c;
+    	*c = temp;
+	}
+};
+
+void swapArray(int a[], int b[], int size)
+{
+	int ca=0,cb=0,temp=0;
+	
+	for(int i=0;i<size;i++)
+	{
+		a[i] == ca++;
+		b[i] == cb++;
+	}
+	
+	if(ca == cb)
+	{
+		for(int i=0;i<size;i++)
+		{
+			temp = a[i];
+			a[i] = b[i];
+			b[i] = temp;
+		}
+	}
+}
+
